@@ -1,0 +1,179 @@
+---
+title: "proyecto 1"
+output: pdf_document
+date: "2023-11-31"
+---
+# Informe: Resolución del Oscilador Armónico Cuántico con el Método de Numerov
+
+## Introducción
+En este informe, se describe la implementación del método de Numerov en lenguaje C para resolver el oscilador armónico cuántico. El método de Numerov es una técnica numérica utilizada en la mecánica cuántica para calcular las funciones propias de un sistema cuántico.
+
+## Descripción del Método de Numerov
+El método de Numerov es una técnica numérica que se utiliza para encontrar las funciones propias de una ecuación de Schrödinger en sistemas unidimensionales. En el contexto del oscilador armónico cuántico, se utiliza para calcular las funciones propias del sistema, que representan los estados cuánticos del oscilador.
+
+## La implementación en C se basa en los siguientes pasos:
+- Paso 1: Definición de parámetros del oscilador armónico.
+- Paso 2: Implementación del algoritmo de Numerov para encontrar las funciones propias.
+- Paso 3: Cálculo y representación gráfica de las funciones propias.
+
+
+## Implementacion con gnuplot 
+Primeramente utilizamos gnuplot para realizar las graficas del Oscilador Armónico Cuántico Por Medio De Métodos Numéricos. Primero creamos el archivo y agregamos el código C, despues por medio de este código C nos genera un archivo .txt que es con el cual nos permitirá graficar, sin embargo tuvimos algunos inconvenientes con gnuplot ya que no graficaba correctamente además de que no entendíamos mucho como funcionaba gnuplot. Procedemos a anexar una foto de la primera grafica.
+
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/oscilador%20armonico%20cuantico%20debian/imagen2.png?ref_type=heads" alt="Texto alternativo" width="500">
+
+
+
+## codigo C para generar los datos
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/codigos/codigo_C_Debian_Gnuplot.png" alt="Texto alternativo" width="500">
+
+
+## Explicacion detallada del codigo 
+
+Inclusión de bibliotecas:
+
+El programa incluye las bibliotecas estándar de C, como stdio.h y math.h, que son necesarias para operaciones de entrada/salida y funciones matemáticas, respectivamente.
+Definiciones de constantes:
+
+Se definen tres constantes:
+N: El número de puntos en el espacio de posición. En este caso, se establece en 1000.
+h: El paso de discretización en el espacio de posición. Se establece en 0.01.
+omega: La frecuencia angular del oscilador armónico cuántico. Se establece en 1.0.
+Función potential:
+
+Esta función calcula el potencial del oscilador armónico cuántico en función de la posición x.
+Función numerov:
+
+Esta función implementa el algoritmo de Numerov para resolver la ecuación de Schrödinger en el oscilador armónico cuántico.
+Recibe un arreglo psi que almacena la función de onda calculada, un arreglo x que contiene los puntos en el espacio de posición, y la energía E.
+Calcula el arreglo k2, que es utilizado en el método de Numerov.
+Luego, resuelve la ecuación de Schrödinger para encontrar la función de onda psi en función de la energía E.
+Función main:
+
+En la función principal, se inicializan arreglos para almacenar los valores de posición x y las funciones de onda psi para cinco energías diferentes.
+Se genera un archivo de datos llamado "oscilador_armonico.dat" que contendrá los valores de x y las funciones de onda psi para su posterior visualización.
+Se realiza un bucle para calcular las funciones de onda psi para las cinco energías diferentes.
+Se utiliza Gnuplot para crear un gráfico que muestra las funciones de onda en función de x para las cinco energías. Las etiquetas en el gráfico representan el número cuántico principal n asociado a cada energía.
+
+## Implementacion en python parte 1
+Después de un análisis exhaustivo de la situación, tomamos la decisión de utilizar Python para la creación de gráficas. Tras una investigación detallada sobre la mejor forma de lograr esto en Python, llegamos a la conclusión de que era la opción más eficiente para visualizar nuestros datos. Esta elección nos llevó a realizar ajustes en el código C preexistente para adaptarlo a Python. Además, creamos un código adicional en Python que permitiera la lectura de los datos generados en formato .txt por el código en C. Como resultado, ahora podemos presentar una representación gráfica de los datos. sin embargo 
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/oscilador%20armonico%20cuantico%20C/imagen1-.png" width="500">
+
+## codigo C para generar los datos 
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/codigos/Codigo_C_Graf_Python_1.png" width="500">
+
+## Explicacion detallada del codigo
+
+Inclusión de bibliotecas:
+
+El programa incluye las bibliotecas estándar de C, como stdio.h y math.h, que son necesarias para operaciones de entrada/salida y funciones matemáticas, respectivamente.
+
+Parámetros del oscilador armónico cuántico:
+
+El código define algunos parámetros importantes del oscilador armónico cuántico, como la frecuencia angular omega, la energía E y el número cuántico orbital l.
+
+Función numerov:
+
+Esta función calcula la función de onda para un electrón en el oscilador armónico cuántico utilizando el método de Numerov.
+Recibe dos parámetros: n, que representa el número de puntos en la malla, y rmax, que es el valor máximo de la variable r.
+Inicializa arreglos para almacenar los valores de r y u, que representan la función de onda.
+Aplica las condiciones iniciales y realiza un bucle para calcular los valores de r y u utilizando el método de Numerov.
+Los datos se escriben en un archivo llamado "funcion_de_onda.txt" que contendrá los valores de r y u.
+Función main:
+
+En la función principal, se especifican el número de puntos de la malla n y el valor máximo de r rmax.
+Llama a la función numerov para calcular la función de onda y escribir los resultados en un archivo.
+
+## codigo de python para poder graficar
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/codigos/Codigo_para_Graficar_python.png?ref_type=heads" width="500" alt="Texto alternativo">
+
+## Explicacion detallada del codigo
+
+Importación de bibliotecas:
+
+import matplotlib.pyplot as plt: Importa la biblioteca Matplotlib y la renombra como 'plt' para su uso posterior en la creación de gráficos.
+import numpy as np: Importa la biblioteca NumPy y la renombra como 'np' para trabajar con arrays y operaciones matemáticas.
+
+Carga de datos:
+
+data = np.loadtxt('funcion_de_onda.txt'): Carga los datos desde el archivo 'funcion_de_onda.txt' en un array NumPy llamado 'data'. Se asume que este archivo contiene dos columnas de datos separados por espacios o comas, donde la primera columna contiene valores de 'r' y la segunda columna contiene valores de 'u'.
+
+Extracción de datos:
+
+r = data[:, 0]: Extrae la primera columna de datos (columna '0') del array 'data' y la almacena en un nuevo array llamado 'r'. Estos serán los valores para el eje x del gráfico.
+u = data[:, 1]: Extrae la segunda columna de datos (columna '1') del array 'data' y la almacena en un nuevo array llamado 'u'. Estos serán los valores para el eje y del gráfico.
+
+Creación del gráfico:
+
+plt.plot(r, u, label='Función de onda'): Crea un gráfico de dispersión con 'r' en el eje x y 'u' en el eje y. También agrega una etiqueta "Función de onda" para la leyenda del gráfico.
+plt.xlabel('r'): Agrega una etiqueta al eje x del gráfico con el texto "r".
+plt.ylabel('u'): Agrega una etiqueta al eje y del gráfico con el texto "u".
+plt.legend(): Muestra la leyenda en el gráfico con la etiqueta "Función de onda" para identificar la línea.
+plt.show(): Muestra el gráfico en la pantalla.
+
+## Implementacion en python parte 2
+
+Acá tuvimos un mayor enfoque y logramos graficar una función de onda de Schrödinger, sin embargo no lográbamos graficar las otras funciones es por esto que optamos por realizarlo en Python para poder graficar las otras funciones del oscilador armónico cuántico, Anexamos foto.
+
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/oscilador%20armonico%20cuantico%20py/imagen2.png" width="500">
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/oscilador%20armonico%20cuantico%20py/imagen1.png" alt="Texto alternativo" width="500">
+
+
+## Codigo Python
+
+<img src="https://gitlab.com/alexdavidr419/proyecto-1-2023/-/raw/main/codigos/Codigo_Graf_Python.png" alt="Texto alternativo" width="500">
+
+## Explicacion detallada del codigo
+Importación de bibliotecas:
+
+El código importa las siguientes bibliotecas:
+numpy como np: para realizar cálculos numéricos.
+matplotlib.pyplot como plt: para realizar gráficos.
+scipy.special.hermite y scipy.special.factorial: para calcular los polinomios de Hermite y factoriales necesarios en la función de onda.
+
+Parámetros del oscilador armónico cuántico:
+
+Se definen algunas constantes físicas importantes, como la masa m, la frecuencia angular omega, y la constante reducida de Planck hbar.
+
+Función wave_function:
+
+Esta función calcula la función de onda para un oscilador armónico cuántico en un nivel de energía n.
+Utiliza la fórmula matemática que combina el polinomio de Hermite y una función gaussiana, multiplicada por un prefactor.
+Devuelve la función de onda calculada.
+Creación de un espacio de posición x:
+
+Se genera un arreglo x que representa una malla de puntos en el espacio de posición que va desde -5 a 5, con 1000 puntos equidistantes.
+
+Gráficos de la función de onda:
+
+Un bucle for itera a través de los primeros 4 niveles cuánticos (n=0, 1, 2, 3).
+Para cada nivel n, se calcula la función de onda utilizando la función wave_function y se grafica en un gráfico utilizando plt.plot.
+Se agrega una leyenda que muestra el valor de n, se establece el título y las etiquetas de los ejes, y se muestra el gráfico.
+
+Gráficos de la probabilidad:
+
+calcula la probabilidad como el cuadrado del valor absoluto de la función de onda.
+Luego, grafica la probabilidad en función de x para cada nivel n, con etiquetas y elementos de gráfica adecuados.
+
+# Conclusion
+El desafío de implementar el método de Numerov para resolver el oscilador armónico cuántico y representar sus funciones propias es una tarea que abarca múltiples aspectos de la ingeniería de software. La implementación en lenguaje C exige una sólida comprensión de la programación y la optimización de código para garantizar un rendimiento eficiente en la resolución de ecuaciones diferenciales, lo que refleja la importancia de la eficiencia del código en la ingeniería de software. La creación de un repositorio en un sistema de control de versiones como Git permite un seguimiento preciso del desarrollo del código, lo que es fundamental en cualquier proyecto de ingeniería de software. Además, se puede implementar un sistema de control de calidad para asegurar la fiabilidad y la precisión de los resultados, otro aspecto esencial en la ingeniería de software.
+Además, la representación gráfica de las funciones propias a través de herramientas como Python, Gnuplot o Processing demuestra la importancia de la interacción con herramientas externas en la ingeniería de software. La capacidad de integrar diferentes tecnologías es esencial para proyectos complejos y resalta la versatilidad requerida en la ingeniería de software.
+
+
+
+
+
+
+
+
+
+
+
+
